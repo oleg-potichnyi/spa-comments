@@ -28,7 +28,9 @@ class Migration(migrations.Migration):
                     models.CharField(
                         max_length=100,
                         unique=True,
-                        validators=[django.core.validators.MinLengthValidator(1)],
+                        validators=[
+                            django.core.validators.MinLengthValidator(1)
+                        ],
                     ),
                 ),
                 (
@@ -45,7 +47,9 @@ class Migration(migrations.Migration):
                     models.CharField(
                         blank=True,
                         max_length=6,
-                        validators=[django.core.validators.MinLengthValidator(6)],
+                        validators=[
+                            django.core.validators.MinLengthValidator(6)
+                        ],
                     ),
                 ),
             ],
@@ -66,7 +70,9 @@ class Migration(migrations.Migration):
                     "text",
                     models.TextField(
                         blank=True,
-                        validators=[django.core.validators.MinLengthValidator(1)],
+                        validators=[
+                            django.core.validators.MinLengthValidator(1)
+                        ],
                     ),
                 ),
                 ("created_at", models.DateTimeField(auto_now_add=True)),

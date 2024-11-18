@@ -18,9 +18,15 @@ class User(models.Model):
 
 
 class Comment(models.Model):
-    user = models.ForeignKey(User, related_name="comments", on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        User, related_name="comments", on_delete=models.CASCADE
+    )
     parent = models.ForeignKey(
-        "self", null=True, blank=True, related_name="replies", on_delete=models.CASCADE
+        "self",
+        null=True,
+        blank=True,
+        related_name="replies",
+        on_delete=models.CASCADE
     )
     text = models.TextField(validators=[MinLengthValidator(1)], blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -45,7 +51,9 @@ class Comment(models.Model):
 
 class UploadedFile(models.Model):
     file = models.FileField(upload_to="uploads/")
-    comment = models.ForeignKey(Comment, related_name="files", on_delete=models.CASCADE)
+    comment = models.ForeignKey(
+        Comment, related_name="files", on_delete=models.CASCADE
+    )
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
