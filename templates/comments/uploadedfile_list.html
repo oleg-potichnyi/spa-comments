@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container pt-8">
+  <h1>Uploaded Files List</h1>
+
+  {% if files %}
+    <ul class="list-group">
+      {% for file in files %}
+      <li class="list-group-item">
+        <div>
+          <strong>File:</strong> <a href="{{ file.file }}" target="_blank">{{ file.file }}</a> (Uploaded at: {{ file.uploaded_at }})
+        </div>
+        <p>Comment ID: {{ file.comment_id }}</p>
+        <a href="{% url 'uploaded_file_detail' file.id %}" class="btn btn-link">View Details</a>
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No files available.</p>
+  {% endif %}
+</div>
+{% endblock %}

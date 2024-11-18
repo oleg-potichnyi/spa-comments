@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container pt-8">
+  <h1>Comment List</h1>
+
+  {% if comments %}
+    <ul class="list-group">
+      {% for comment in comments %}
+      <li class="list-group-item">
+        <div>
+          <strong>{{ comment.user.username }}</strong> ({{ comment.created_at }})
+        </div>
+        <p>{{ comment.text }}</p>
+        {% if comment.parent %}
+        <div class="text-muted">Replying to: {{ comment.parent.text }}</div>
+        {% endif %}
+        <a href="{% url 'comment_detail' comment.id %}" class="btn btn-link">View Details</a>
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No comments available.</p>
+  {% endif %}
+</div>
+{% endblock %}
