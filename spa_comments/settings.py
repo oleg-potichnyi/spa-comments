@@ -31,9 +31,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY", default="your secret key")
 
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 
-# ALLOWED_HOSTS = ["127.0.0.1", "SPA_comments.onrender.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "spa-comments.onrender.com"]
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+# ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 INTERNAL_IPS = [
     "127.0.0.1",
