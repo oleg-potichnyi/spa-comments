@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", default="your secret key")
 
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 
-ALLOWED_HOSTS = ["127.0.0.1", "spa-comments.onrender.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "spa-comments.onrender.com", "localhost"]
 
 # ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
@@ -94,8 +94,8 @@ DATABASES = {
         "NAME": os.getenv("POSTGRES_DB", "app"),
         "USER": os.getenv("POSTGRES_USER", "postgres"),
         "PASSWORD": os.getenv("POSTGRES_PASSWORD", "secretpassword"),
-        "HOST": os.getenv("POSTGRES_HOST", "localhost"),
-        "PORT": os.getenv("POSTGRES_PORT", "5433"),
+        "HOST": os.getenv("POSTGRES_HOST", "db"),
+        "PORT": os.getenv("POSTGRES_PORT", "5432"),
     }
 }
 
@@ -153,7 +153,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
+# STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
