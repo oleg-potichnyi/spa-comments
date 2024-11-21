@@ -17,4 +17,5 @@ RUN mkdir -p /vol/web/media && \
 
 EXPOSE 8000
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+#CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["gunicorn", "spa_comments.wsgi:application", "--bind", "0.0.0.0:8000"]
