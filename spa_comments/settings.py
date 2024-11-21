@@ -35,7 +35,7 @@ DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 
 # ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
 
-ALLOWED_HOSTS = ["spa-comments-lij6.onrender.com"]
+ALLOWED_HOSTS = ["spa-comments-lij6.onrender.com", "localhost"]
 
 INTERNAL_IPS = [
     "127.0.0.1",
